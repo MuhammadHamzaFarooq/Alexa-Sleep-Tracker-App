@@ -1,0 +1,200 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "sleep tracker",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "wellRested_Intent",
+          "slots": [
+            {
+              "name": "sleepHours",
+              "type": "AMAZON.TIME",
+              "samples": [
+                "i will wake in {sleepHours} hours",
+                "i will wake up at  {sleepHours} ",
+                "i will wake up in {sleepHours}",
+                "{sleepHours}"
+              ]
+            },
+            {
+              "name": "sleepQuality",
+              "type": "sleepQuality",
+              "samples": [
+                "it was {sleepQuality} ",
+                "{sleepQuality}",
+                "i slept {sleepQuality} "
+              ]
+            }
+          ],
+          "samples": [
+            "how can i be well rested",
+            "will i be well-rested  if i sleep for {sleepHours} hours",
+            "how well-rested will I be ",
+            "how well-rested will I be if I sleep for {sleepHours} hours ",
+            "How rested will I be",
+            "How rested will I be if I get {sleepHours} hours of sleep",
+            "How rested will I be if I get {sleepHours} hours of rest",
+            "How rested will I be if I sleep for {sleepHours} hours",
+            "How rested will I be if I rest for {sleepHours} hours",
+            "How well-rested will I be after {sleepHours} hours",
+            "How well-rested will I be after {sleepHours} hours if I slept {sleepQuality} last night",
+            "How well-rested will I be if I slept {sleepQuality} last night",
+            "How well-rested will I be if I slept {sleepQuality} last night and I get {sleepHours} of sleep tonight",
+            "How tired will I be",
+            "How tired will I be if I get {sleepHours} hours of sleep",
+            "How tired will I be if I get {sleepHours} hours of sleep and I slept {sleepQuality} last night",
+            "How tired will I be if I get {sleepHours} hours of sleep and I got {sleepQuality} sleep last night",
+            "How tired will I be if I get {sleepHours} hours of rest",
+            "How tired will I be if I get {sleepHours} hours of rest and I slept {sleepQuality} last night",
+            "How tired will I be if I get {sleepHours} hours of rest and I got {sleepQuality} sleep last night",
+            "How tired will I be if I sleep for {sleepHours} hours",
+            "How tired will I be if I sleep for {sleepHours} hours tonight",
+            "How tired will I be if I rest for {sleepHours} hours tonight",
+            "How tired will I be after {sleepHours} hours",
+            "Will I be rested sleeping for {sleepHours} hours",
+            "Will I be rested sleeping for {sleepHours} hours after a night of {sleepQuality} sleep"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "bad",
+                "synonyms": [
+                  "not well",
+                  "not at all",
+                  "little",
+                  "very little",
+                  "poorly",
+                  "badly "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "good",
+                "synonyms": [
+                  "tremendously well",
+                  "tremendous ",
+                  "perfect",
+                  "amazingly",
+                  "excellent ",
+                  "not bad",
+                  "great",
+                  "fantastic",
+                  "a lot",
+                  "amazing",
+                  "wonderfully",
+                  "well"
+                ]
+              }
+            }
+          ],
+          "name": "sleepQuality"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "wellRested_Intent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "sleepHours",
+              "type": "AMAZON.TIME",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.627121267016.1362426427326"
+              }
+            },
+            {
+              "name": "sleepQuality",
+              "type": "sleepQuality",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.627121267016.106001422209"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.627121267016.106001422209",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "did you sleep well last night"
+          },
+          {
+            "type": "PlainText",
+            "value": "how was your sleep  last night"
+          },
+          {
+            "type": "PlainText",
+            "value": "how did you sleep last night"
+          },
+          {
+            "type": "PlainText",
+            "value": "how well did you sleep last night"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.627121267016.1362426427326",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "you plan to wake up in how many hours "
+          },
+          {
+            "type": "PlainText",
+            "value": "how many hours do you plan to sleep"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
